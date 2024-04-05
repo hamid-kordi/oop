@@ -24,3 +24,5 @@ emp = Employee("ahmad", "majaid")
 print(emp.fullname)
 emp.fullname = "salam ohmi"
 print(emp.fullname)
+del emp.fullname
+print(emp.fullname)

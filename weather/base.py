@@ -16,7 +16,8 @@ class OneMeteo(WeatherApiBase):
         result = requests.get("https://api.open-meteo.com/v1/forecast", params=param)
         result_json = result.json()
         return result_json["current_weather"]["temperature"]
-
+    def get_current_temperature(self):
+        return self.get_parametr_temperature()
 
 if __name__ == "__main__":
     open_meteo_obj = OneMeteo(35.69, 50.41)

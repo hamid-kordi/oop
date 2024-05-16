@@ -39,11 +39,12 @@ class User:
         "z",
     ]
 
-    @classmethod
-    def __dellet(cls, let):
-        st = cls.full_letter
-        st.remove(let)
-        return st
+    # @classmethod
+    # def __dellet(self, let):
+    #     self.letter = let
+    #     st = User.full_letter
+    #     st.remove(self.letter)
+    #     return st
 
     age = 6
 
@@ -62,47 +63,44 @@ class User:
     def limit(self, gues_limit):
         self.count = gues_limit
 
-    @classmethod
-    def __deldel(cls):
+    # @classmethod
+    def __deldel():
 
-        cls.age = cls.age - 1
-        if cls.age >= 1:
-            print(cls.age, " from age left")
+        User.age = User.age - 1
+        if User.age >= 1:
+            print(User.age, " from age left")
         else:
             print("game over go out please")
 
-    def guse_letter(self, letter):
+    def guse_letter(self, letter,word):
         self.letter = letter
-        left_letter = User.__dellet(letter)
-        print(f"select after guese between this {left_letter}")
-
-        word_guss = list(self.__word)
-        list(set(word_guss))
+        
+        word_guss = word
+        word_guss = list(word_guss)
+        (set(word_guss))
+        
         if letter in list(word_guss):
             print("ok that is right")
-            word_guss.remove(letter)
-            len_left = len(word_guss)
-            print(f"left{len_left}")
-            if len_left == 0:
-                print("ok you win")
+
         else:
-            print("ریدی مهندسی یه بار دیگه امتحان کن ")
+            print("ریدی مهندس یه بار دیگه امتحان کن ")
             User.__deldel()
 
 
-class Game:
+nam1 = input("enter the name of the first gammer  should guess word: ")
+nam2 = input("enter the name of the second gammer should guess letter: ")
 
-    nam1 = input("enter the name of the first gammer  should guess word: ")
-    nam2 = input("enter the name of the second gammer should guess letter: ")
+obj = User(nam1)
+obj1 = User(nam2)
 
-    obj = User(nam1)
-    obj1 = User(nam2)
-
-    word = input(f"user{nam1} please enter your word : ")
-    obj.guese(word)
-    opt = input(f"user {nam2} do you want use options : ")
-    if opt == "yes":
-        print("basheh ")
-    lett = input(f"{nam2} please enter the first guess     ")
-
-    obj1.guse_letter(lett)
+word = input(f"user{nam1} please enter your word : ")
+obj.guese(word)
+opt = input(f"user {nam2} do you want use options : ")
+if opt == "yes":
+    print("basheh ")
+lett = input(f"{nam2} please enter the first guess     ")
+u = 1
+while(u == 1):
+    obj1.guse_letter(lett,word=obj.general_word)
+    u = int(input('do you want to resume : '))
+    lett = input('enter on letter')
